@@ -34,7 +34,7 @@ public class Exercises {
 //    }
 
     dtos = orders.stream()
-            .filter(order -> order.status() == COMPLETED)
+            .filter(isCompletedOrder)
             .map(OrderDto::new)
             .toList();
     return dtos;
