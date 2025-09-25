@@ -145,6 +145,20 @@ public class Exercises {
     }
     return (int) sum;
   }
+//    double sum = 0;
+//    for (Order order : orders) {
+//      if (order.status() == COMPLETED)
+//        sum += order.total();
+//    }
+//    return (int) sum;
+
+    return orders.stream()
+            .filter(isCompletedOrder)
+            .map(Order::total)
+            .reduce(0d, (t1, t2) -> t1+t2)
+            .intValue();
+  }
+
 
   /**
    * @return the products bought by the customer, with no duplicates, sorted by Product.name
