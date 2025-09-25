@@ -138,13 +138,6 @@ public class Exercises {
    * @return sum of all Order.total(), truncated to int.
    */
   public int p6_completedTotalSum(List<Order> orders) {
-    double sum = 0;
-    for (Order order : orders) {
-      if (order.status() == COMPLETED)
-        sum += order.total();
-    }
-    return (int) sum;
-  }
 //    double sum = 0;
 //    for (Order order : orders) {
 //      if (order.status() == COMPLETED)
