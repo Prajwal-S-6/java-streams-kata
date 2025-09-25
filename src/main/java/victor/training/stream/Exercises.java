@@ -90,16 +90,20 @@ public class Exercises {
 //    }
 //    return maxOrder;
 
+//    return orders.stream()
+//            .filter(order -> order.orderLines().stream().noneMatch(OrderLine::isSpecialOffer))
+//            .max(new Comparator<Order>() {
+//              @Override
+//              public int compare(Order o1, Order o2) {
+//                if(o1.total() > o2.total()) return 1;
+//                else if (o1.total() < o2.total()) return -1;
+//                else return 0;
+//              }
+//            });
+
     return orders.stream()
             .filter(order -> order.orderLines().stream().noneMatch(OrderLine::isSpecialOffer))
-            .max(new Comparator<Order>() {
-              @Override
-              public int compare(Order o1, Order o2) {
-                if(o1.total() > o2.total()) return 1;
-                else if (o1.total() < o2.total()) return -1;
-                else return 0;
-              }
-            });
+            .max(Comparator.comparing(Order::total));
 
   }
 
