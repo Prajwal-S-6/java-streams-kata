@@ -65,7 +65,7 @@ public class Exercises {
 //    return false;
     return orders
             .stream()
-            .anyMatch(order -> order.status() == COMPLETED);
+            .anyMatch(isCompletedOrder);
 
   }
 
