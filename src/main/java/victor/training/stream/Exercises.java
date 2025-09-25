@@ -92,7 +92,14 @@ public class Exercises {
 
     return orders.stream()
             .filter(order -> order.orderLines().stream().noneMatch(OrderLine::isSpecialOffer))
-            .max(Comparator.comparing(Order::total));
+            .max(new Comparator<Order>() {
+              @Override
+              public int compare(Order o1, Order o2) {
+                if(o1.total() > o2.total()) return 1;
+                else if (o1.total() < o2.total()) return -1;
+                else return 0;
+              }
+            });
 
   }
 
