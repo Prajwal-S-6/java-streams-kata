@@ -39,15 +39,19 @@ public class Exercises {
     return dtos;
   }
 
-  public Order p2_findOrderById(List<Order> orders, int orderId) {
+//  public Order p2_findOrderById(List<Order> orders, int orderId) {
+  public Optional<Order> p2_findOrderById(List<Order> orders, int orderId) {
     // TODO 1: rewrite with streams
     // TODO 2: return Optional<> and fix the tests
-    for (Order order : orders) {
-      if (order.id() == orderId) {
-        return order;
-      }
-    }
-    return null;
+//    for (Order order : orders) {
+//      if (order.id() == orderId) {
+//        return order;
+//      }
+//    }
+//    return null;
+
+    return orders.stream().filter(order -> order.id() == orderId).findFirst();
+
   }
 
   // TODO all the following: rewrite with streams
