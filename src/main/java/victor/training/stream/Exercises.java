@@ -112,19 +112,6 @@ public class Exercises {
    * @return last 3 returnReason()s sorted descending by Order.createdOn
    */
   public List<String> p5_last3Orders(List<Order> orders) {
-    List<Order> copy = new ArrayList<>(orders);
-    copy.sort(new LatestOrderComparator());
-    List<String> returnReasons = new ArrayList<>();
-    for (Order order : copy) {
-      if (order.returnReason().isPresent()) {
-        returnReasons.add(order.returnReason().get());
-        if (returnReasons.size() == 3) {
-          break;
-        }
-      }
-    }
-    return returnReasons;
-    // Hint: Optional#stream()
 //    List<Order> copy = new ArrayList<>(orders);
 //    copy.sort(new LatestOrderComparator());
 //    List<String> returnReasons = new ArrayList<>();
