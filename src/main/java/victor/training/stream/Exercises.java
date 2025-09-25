@@ -125,6 +125,25 @@ public class Exercises {
     }
     return returnReasons;
     // Hint: Optional#stream()
+//    List<Order> copy = new ArrayList<>(orders);
+//    copy.sort(new LatestOrderComparator());
+//    List<String> returnReasons = new ArrayList<>();
+//    for (Order order : copy) {
+//      if (order.returnReason().isPresent()) {
+//        returnReasons.add(order.returnReason().get());
+//        if (returnReasons.size() == 3) {
+//          break;
+//        }
+//      }
+//    }
+//    return returnReasons;
+
+    return orders.stream()
+            .sorted(new LatestOrderComparator())
+            .filter(order -> order.returnReason().isPresent())
+            .map(order -> order.returnReason().get())
+            .limit(3)
+            .toList();
   }
 
   /**
