@@ -87,20 +87,21 @@ class ExercisesTest {
   void p4_maxPriceOrder_doesMax() {
     Order one = new Order().total(1);
     Order ten = new Order().total(10);
-    Order actual = sut.p4_maxPriceOrder(List.of(one, ten));
-    assertThat(actual).isEqualTo(ten);
+    Optional<Order> actual = sut.p4_maxPriceOrder(List.of(one, ten));
+    assertThat(actual).isPresent();
+    assertThat(actual.get()).isEqualTo(ten);
   }
 
   @Test
   void p4_maxPriceOrder_returnsNullForNoOrders() {
-    assertThat(sut.p4_maxPriceOrder(List.of())).isNull();
+    assertThat(sut.p4_maxPriceOrder(List.of())).isNotPresent();
   }
 
   @Test
   void p4_maxPriceOrder_ignoresSpecialOffers() {
     Order order = new Order().total(1)
         .add(new OrderLine().specialOffer(true));
-    assertThat(sut.p4_maxPriceOrder(List.of(order))).isNull();
+    assertThat(sut.p4_maxPriceOrder(List.of(order))).isNotPresent();
   }
 
   @Test
