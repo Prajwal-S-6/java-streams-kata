@@ -274,6 +274,8 @@ public class Exercises {
 
   }
 
+  private static Predicate<Order> isCompletedOrder = (order) -> order.status() == COMPLETED;
+
   static class LatestOrderComparator implements Comparator<Order> {
     @Override
     public int compare(Order o1, Order o2) {
