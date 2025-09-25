@@ -20,17 +20,22 @@ public class Exercises {
     // TODO 1: simplify
     // TODO 2: use the OrderDto constructor
     // TODO 3: use the OrderMapper.toDto method
-      List<OrderDto> dtos = new ArrayList<>();
-    for (Order order : orders) {
-      if (order.status() == COMPLETED) {
-        OrderDto dto = new OrderDto(
-            order.total(),
-            order.createdOn(),
-            order.paymentMethod(),
-            order.status());
-        dtos.add(dto);
-      }
-    }
+    List<OrderDto> dtos = new ArrayList<>();
+//    for (Order order : orders) {
+//      if (order.status() == COMPLETED) {
+//        OrderDto dto = new OrderDto(
+//            order.total(),
+//            order.createdOn(),
+//            order.paymentMethod(),
+//            order.status());
+//        dtos.add(dto);
+//      }
+//    }
+
+    dtos = orders.stream()
+            .filter(order -> order.status() == COMPLETED)
+            .map(OrderDto::new)
+            .toList();
     return dtos;
   }
 
