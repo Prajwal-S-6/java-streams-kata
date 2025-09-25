@@ -102,6 +102,7 @@ public class Exercises {
 //            });
 
     return orders.stream()
+            .parallel()
             .filter(order -> order.orderLines().stream().noneMatch(OrderLine::isSpecialOffer))
             .max(Comparator.comparing(Order::total));
 
