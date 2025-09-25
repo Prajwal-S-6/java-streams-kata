@@ -65,30 +65,35 @@ public class Exercises {
     return orders
             .stream()
             .anyMatch(order -> order.status() == COMPLETED);
-    
+
   }
 
   /**
    * @return order with the max total() that does NOT contain a special offer line
    */
-  public Order p4_maxPriceOrder(List<Order> orders) {
-    Order maxOrder = null;
-    for (Order order : orders) {
-      boolean hasSpecialOffer = false;
-      for (OrderLine orderLine : order.orderLines()) {
-        if (orderLine.isSpecialOffer()) {
-          hasSpecialOffer = true;
-          break;
-        }
-      }
-      if (hasSpecialOffer) {
-        continue;
-      }
-      if (maxOrder == null || order.total() > maxOrder.total()) {
-        maxOrder = order;
-      }
-    }
-    return maxOrder;
+  public Optional<Order> p4_maxPriceOrder(List<Order> orders) {
+//    Order maxOrder = null;
+//    for (Order order : orders) {
+//      boolean hasSpecialOffer = false;
+//      for (OrderLine orderLine : order.orderLines()) {
+//        if (orderLine.isSpecialOffer()) {
+//          hasSpecialOffer = true;
+//          break;
+//        }
+//      }
+//      if (hasSpecialOffer) {
+//        continue;
+//      }
+//      if (maxOrder == null || order.total() > maxOrder.total()) {
+//        maxOrder = order;
+//      }
+//    }
+//    return maxOrder;
+
+    return orders.stream()
+            .filter(order -> order.orderLines().stream().noneMatch(OrderLine::isSpecialOffer))
+            .max(Comparator.comparing(Order::total));
+
   }
 
   /**
