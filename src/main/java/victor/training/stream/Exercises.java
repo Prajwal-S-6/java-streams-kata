@@ -273,14 +273,11 @@ public class Exercises {
   /**
    * @return the first cell of a semicolon-separated file, as integers
    */
-  public Set<Integer> pC_csvLinesInAllFilesInFolder(File file) throws IOException {
-    try (Stream<String> lines = Files.lines(file.toPath())) {
-      return lines
-          .filter(s -> !s.isBlank())
-          .map(line -> Integer.parseInt(line.split(";")[0]))
-          .collect(Collectors.toSet());
-    }
-  }
+//  public Set<Integer> pC_csvLinesInAllFilesInFolder(File file) throws IOException {
+//    try (Stream<String> lines = Files.lines(file.toPath())) {
+//      
+//    }
+//  }
 
   /**
    * @return the elements in Fibonacci sequence between startIndex and endIndex
