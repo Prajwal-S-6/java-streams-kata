@@ -168,6 +168,23 @@ public class Exercises {
     List<Product> sorted = new ArrayList<>(products);
     sorted.sort((o1, o2) -> o1.name().compareTo(o2.name()));
     return sorted;
+//    Set<Product> products = new HashSet<>();
+//    for (Order order : orders) {
+//      for (OrderLine line : order.orderLines()) {
+//        products.add(line.product());
+//      }
+//    }
+//    List<Product> sorted = new ArrayList<>(products);
+//    sorted.sort((o1, o2) -> o1.name().compareTo(o2.name()));
+//    return sorted;
+
+    return orders.stream()
+            .map(Order::orderLines)
+            .flatMap(List::stream)
+            .map(OrderLine::product)
+            .collect(Collectors.toSet())
+            .stream().sorted(Comparator.comparing(Product::name))
+            .toList();
   }
 
   /**
