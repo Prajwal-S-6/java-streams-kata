@@ -244,6 +244,16 @@ public class Exercises {
 //    }
 //    sb.deleteCharAt(sb.length() - 1); // remove the last comma
 //    return sb.toString();
+
+    return orders.stream()
+            .map(Order::orderLines)
+            .flatMap(List::stream)
+            .map(OrderLine::product)
+            .collect(toSet())
+            .stream()
+            .map(Product::name)
+            .sorted()
+            .collect(joining(","));
   }
 
   /**
