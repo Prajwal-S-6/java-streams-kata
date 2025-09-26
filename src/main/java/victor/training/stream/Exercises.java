@@ -192,6 +192,20 @@ public class Exercises {
       list.add(order);
     }
     return map;
+//    Map<PaymentMethod, List<Order>> map = new HashMap<>();
+//    for (Order order : orders) {
+//      List<Order> list = map.get(order.paymentMethod());
+//      if (list == null) {
+//        list = new ArrayList<>();
+//        map.put(order.paymentMethod(), list);
+//      }
+//      list.add(order);
+//    }
+//    return map;
+
+    return orders.stream()
+            .collect(groupingBy(Order::paymentMethod,
+                    Collectors.mapping(Function.identity(), Collectors.toList())));
   }
 
   /**
