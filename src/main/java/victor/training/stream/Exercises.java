@@ -218,6 +218,23 @@ public class Exercises {
       result.put(line.product(), old + line.count());
     }
     return result;
+//    List<OrderLine> allLines = new ArrayList<>();
+//    for (Order order : orders) {
+//      allLines.addAll(order.orderLines());
+//    }
+//    Map<Product, Integer> result = new HashMap<>();
+//    for (OrderLine line : allLines) {
+//      int old;
+//      if (!result.containsKey(line.product())) {
+//        result.put(line.product(), 0);
+//        old = 0;
+//      } else {
+//        old = result.get(line.product());
+//      }
+//      result.put(line.product(), old + line.count());
+//    }
+//    return result;
+
   }
 
   /**
