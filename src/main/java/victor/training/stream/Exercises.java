@@ -223,7 +223,7 @@ public class Exercises {
     return orders.stream()
             .map(Order::orderLines)
             .flatMap(List::stream)
-            .collect(groupingBy(OrderLine::product, reducing(0, e -> e.count(), Integer::sum)));
+            .collect(groupingBy(OrderLine::product, reducing(0, OrderLine::count, Integer::sum)));
   }
 
   /**
