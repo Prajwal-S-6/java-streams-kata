@@ -237,6 +237,13 @@ public class Exercises {
     }
     sb.deleteCharAt(sb.length() - 1); // remove the last comma
     return sb.toString();
+//    List<Product> products = p7_productsSorted(orders);
+//    StringBuilder sb = new StringBuilder();
+//    for (Product product : products) {
+//      sb.append(product.name()).append(",");
+//    }
+//    sb.deleteCharAt(sb.length() - 1); // remove the last comma
+//    return sb.toString();
   }
 
   /**
