@@ -182,16 +182,6 @@ public class Exercises {
    * see tests for an example
    */
   public Map<PaymentMethod, List<Order>> p8_ordersGroupedByPaymentMethod(List<Order> orders) {
-    Map<PaymentMethod, List<Order>> map = new HashMap<>();
-    for (Order order : orders) {
-      List<Order> list = map.get(order.paymentMethod());
-      if (list == null) {
-        list = new ArrayList<>();
-        map.put(order.paymentMethod(), list);
-      }
-      list.add(order);
-    }
-    return map;
 //    Map<PaymentMethod, List<Order>> map = new HashMap<>();
 //    for (Order order : orders) {
 //      List<Order> list = map.get(order.paymentMethod());
