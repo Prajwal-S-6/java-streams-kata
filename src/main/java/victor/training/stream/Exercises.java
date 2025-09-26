@@ -202,22 +202,6 @@ public class Exercises {
    * @return the total number of products purchased across all orders (see test)
    */
   public Map<Product, Integer> p9_productCount(List<Order> orders) {
-    List<OrderLine> allLines = new ArrayList<>();
-    for (Order order : orders) {
-      allLines.addAll(order.orderLines());
-    }
-    Map<Product, Integer> result = new HashMap<>();
-    for (OrderLine line : allLines) {
-      int old;
-      if (!result.containsKey(line.product())) {
-        result.put(line.product(), 0);
-        old = 0;
-      } else {
-        old = result.get(line.product());
-      }
-      result.put(line.product(), old + line.count());
-    }
-    return result;
 //    List<OrderLine> allLines = new ArrayList<>();
 //    for (Order order : orders) {
 //      allLines.addAll(order.orderLines());
@@ -235,6 +219,11 @@ public class Exercises {
 //    }
 //    return result;
 
+
+    return orders.stream()
+            .map(Order::orderLines)
+            .flatMap(List::stream)
+            .collect(groupingBy(OrderLine::product, reducing(0, e -> e.count(), Integer::sum)));
   }
 
   /**
