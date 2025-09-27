@@ -278,6 +278,10 @@ public class Exercises {
 //      List<Order> list = map.get(order.paymentMethod());
 //      if (list == null) {
 //        list = new ArrayList<>();
+//        map.put(order.paymentMethod(), list);
+//      }
+//      list.add(order);
+//    }
   }
 
   /**
