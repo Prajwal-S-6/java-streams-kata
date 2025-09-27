@@ -59,13 +59,16 @@ public class Yatzy {
   }
 
   public int fours() {
-    int sum = 0;
-    for (int i = 0; i < 5; i++) {
-      if (dice[i] == 4) {
-        sum += 4;
-      }
-    }
-    return sum;
+//    int sum = 0;
+//    for (int i = 0; i < 5; i++) {
+//      if (dice[i] == 4) {
+//        sum += 4;
+//      }
+//    }
+//    return sum;
+    return Arrays.stream(dice)
+            .filter(value -> value == 4)
+            .reduce(0, Integer::sum);
   }
 
   public int fives() {
