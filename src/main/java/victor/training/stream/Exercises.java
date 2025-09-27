@@ -284,6 +284,10 @@ public class Exercises {
 //    }
 //    return result;
 
+    return orders.stream()
+            .collect(groupingBy(order -> order.createdOn().getMonth(),
+                    HashMap::new,
+                    groupingBy(Order::paymentMethod, mapping(Function.identity(), toList()))));
   }
 
   /**
