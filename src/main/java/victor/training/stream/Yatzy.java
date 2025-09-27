@@ -85,11 +85,15 @@ public class Yatzy {
   }
 
   public int sixes() {
-    int sum = 0;
-    for (int at = 0; at < dice.length; at++)
-      if (dice[at] == 6)
-        sum = sum + 6;
-    return sum;
+//    int sum = 0;
+//    for (int at = 0; at < dice.length; at++)
+//      if (dice[at] == 6)
+//        sum = sum + 6;
+//    return sum;
+
+    return Arrays.stream(dice)
+            .filter(value -> value == 6)
+            .reduce(0, Integer::sum);
   }
 
   public int one_pair() {
