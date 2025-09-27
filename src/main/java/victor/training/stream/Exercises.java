@@ -275,6 +275,9 @@ public class Exercises {
 //        map = new HashMap<>();
 //        result.put(order.createdOn().getMonth(), map);
 //      }
+//      List<Order> list = map.get(order.paymentMethod());
+//      if (list == null) {
+//        list = new ArrayList<>();
   }
 
   /**
