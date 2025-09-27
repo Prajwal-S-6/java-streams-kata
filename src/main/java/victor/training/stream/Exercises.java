@@ -278,14 +278,12 @@ public class Exercises {
   /**
    * @return the first cell of a semicolon-separated file, as integers
    */
-//  public Set<Integer> pC_csvLinesInAllFilesInFolder(File file) throws IOException {
-//    try (Stream<String> lines = Files.lines(file.toPath())) {
-//      
-//    }
-//  }
   public Set<Integer> pC_csvLinesInAllFilesInFolder(File file) throws IOException {
     try (Stream<String> lines = Files.lines(file.toPath())) {
       return lines
+              .filter(line -> !line.isBlank())
+              .map(line -> Arrays.stream(line.split(";")).toList())
+              .map(list -> Integer.parseInt(list.get(0)))
 
   /**
    * @return the elements in Fibonacci sequence between startIndex and endIndex
