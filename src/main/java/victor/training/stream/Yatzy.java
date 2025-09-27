@@ -72,12 +72,16 @@ public class Yatzy {
   }
 
   public int fives() {
-    int s = 0;
-    int i;
-    for (i = 0; i < dice.length; i++)
-      if (dice[i] == 5)
-        s = s + 5;
-    return s;
+//    int s = 0;
+//    int i;
+//    for (i = 0; i < dice.length; i++)
+//      if (dice[i] == 5)
+//        s = s + 5;
+//    return s;
+
+    return Arrays.stream(dice)
+            .filter(value -> value == 5)
+            .reduce(0, Integer::sum);
   }
 
   public int sixes() {
