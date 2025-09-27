@@ -1,5 +1,7 @@
 package victor.training.stream;
 
+import java.util.Arrays;
+
 public class Yatzy {
 
   private final int[] dice;
@@ -25,13 +27,18 @@ public class Yatzy {
   }
 
   public int twos() {
-    int sum = 0;
-    if (dice[0] == 2) sum += 2;
-    if (dice[1] == 2) sum += 2;
-    if (dice[2] == 2) sum += 2;
-    if (dice[3] == 2) sum += 2;
-    if (dice[4] == 2) sum += 2;
-    return sum;
+//    int sum = 0;
+//    if (dice[0] == 2) sum += 2;
+//    if (dice[1] == 2) sum += 2;
+//    if (dice[2] == 2) sum += 2;
+//    if (dice[3] == 2) sum += 2;
+//    if (dice[4] == 2) sum += 2;
+//    return sum;
+
+    return Arrays.stream(dice)
+            .filter(value -> value == 2)
+            .reduce(0, Integer::sum);
+
   }
 
   public int threes() {
