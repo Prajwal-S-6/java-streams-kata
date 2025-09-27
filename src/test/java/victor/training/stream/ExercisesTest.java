@@ -246,15 +246,6 @@ class ExercisesTest {
     assertThat(result).isEqualTo(expected);
   }
 
-//  @Test
-//  void testBlankLinesInFile() throws IOException {
-//    File file = new File("sample.csv");
-//
-//    Set<Integer> actual = sut.pC_csvLinesInAllFilesInFolder(file);
-//
-//    Set<Integer> expected = Set.of(1, 2, 3);
-//    assertThat(actual).isEqualTo(expected);
-//  }
   @Test
   void testBlankLinesInFile() throws IOException {
     File file = new File("sample.csv");
