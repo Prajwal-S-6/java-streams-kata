@@ -284,6 +284,9 @@ public class Exercises {
               .filter(line -> !line.isBlank())
               .map(line -> Arrays.stream(line.split(";")).toList())
               .map(list -> Integer.parseInt(list.get(0)))
+              .collect(toSet());
+    }
+  }
 
   /**
    * @return the elements in Fibonacci sequence between startIndex and endIndex
