@@ -268,6 +268,9 @@ public class Exercises {
       list.add(order);
     }
     return result;
+//    Map<Month, Map<PaymentMethod, List<Order>>> result = new HashMap<>();
+//    for (Order order : orders) {
+//      Map<PaymentMethod, List<Order>> map = result.get(order.createdOn().getMonth());
   }
 
   /**
