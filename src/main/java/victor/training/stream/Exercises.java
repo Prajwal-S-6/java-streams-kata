@@ -283,6 +283,9 @@ public class Exercises {
 //      
 //    }
 //  }
+  public Set<Integer> pC_csvLinesInAllFilesInFolder(File file) throws IOException {
+    try (Stream<String> lines = Files.lines(file.toPath())) {
+      return lines
 
   /**
    * @return the elements in Fibonacci sequence between startIndex and endIndex
