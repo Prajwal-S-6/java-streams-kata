@@ -195,19 +195,28 @@ public class Yatzy {
   }
 
   public int smallStraight() {
-int[] counts = new int[6];
-    counts[dice[0] - 1]++;
-    counts[dice[1] - 1]++;
-    counts[dice[2] - 1]++;
-    counts[dice[3] - 1]++;
-    counts[dice[4] - 1]++;
-    if (counts[0] == 1 &&
-        counts[1] == 1 &&
-        counts[2] == 1 &&
-        counts[3] == 1 &&
-        counts[4] == 1)
-      return 15;
-    return 0;
+//    int[] counts = new int[6];
+//        counts[dice[0] - 1]++;
+//        counts[dice[1] - 1]++;
+//        counts[dice[2] - 1]++;
+//        counts[dice[3] - 1]++;
+//        counts[dice[4] - 1]++;
+//        if (counts[0] == 1 &&
+//            counts[1] == 1 &&
+//            counts[2] == 1 &&
+//            counts[3] == 1 &&
+//            counts[4] == 1)
+//          return 15;
+//        return 0;
+    int sum = Arrays.stream(dice)
+            .boxed()
+            .collect(groupingBy(Function.identity(), counting()))
+            .entrySet()
+            .stream()
+            .filter(entry -> entry.getValue() == 1)
+            .map(Map.Entry::getKey)
+            .reduce(0, Integer::sum);
+    return sum == 15 ? 15 : 0;
   }
 
   public int largeStraight() {
