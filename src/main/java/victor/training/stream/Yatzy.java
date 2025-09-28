@@ -145,6 +145,8 @@ public class Yatzy {
 //    counts[dice[0] - 1]++;
 //    counts[dice[1] - 1]++;
 //    counts[dice[2] - 1]++;
+//    counts[dice[3] - 1]++;
+//    counts[dice[4] - 1]++;
   }
 
   public int four_of_a_kind() {
