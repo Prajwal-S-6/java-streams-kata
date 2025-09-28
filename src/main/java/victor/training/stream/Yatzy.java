@@ -114,6 +114,8 @@ public class Yatzy {
 //    return 0;
 
     return Arrays.stream(dice)
+            .boxed()
+            .collect(groupingBy(Function.identity(), reducing(0, e -> 1, Integer::sum)))
   }
 
   public int two_pair() {
