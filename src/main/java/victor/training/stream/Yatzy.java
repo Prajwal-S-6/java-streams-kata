@@ -164,6 +164,8 @@ public class Yatzy {
             .entrySet()
             .stream().filter(e -> e.getValue() >= 2)
             .limit(2)
+            .map(entry -> entry.getKey() * 2)
+            .reduce(0, Integer::sum);
   }
 
   public int four_of_a_kind() {
