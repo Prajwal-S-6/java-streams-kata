@@ -162,6 +162,8 @@ public class Yatzy {
             .boxed()
             .collect(groupingBy(Function.identity(), reducing(0, e -> 1, Integer::sum)))
             .entrySet()
+            .stream().filter(e -> e.getValue() >= 2)
+            .limit(2)
   }
 
   public int four_of_a_kind() {
