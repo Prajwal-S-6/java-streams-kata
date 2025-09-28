@@ -141,6 +141,8 @@ public class Yatzy {
       return score * 2;
     else
       return 0;
+//    int[] counts = new int[6];
+//    counts[dice[0] - 1]++;
   }
 
   public int four_of_a_kind() {
