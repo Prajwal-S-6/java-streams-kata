@@ -120,6 +120,7 @@ public class Yatzy {
             .stream().filter(e -> e.getValue() >= 2)
             .max(Comparator.comparing(Map.Entry::getKey))
             .map(entry -> entry.getKey() * 2)
+            .orElse(0);
   }
 
   public int two_pair() {
