@@ -160,6 +160,8 @@ public class Yatzy {
 //      return 0;
     return Arrays.stream(dice)
             .boxed()
+            .collect(groupingBy(Function.identity(), reducing(0, e -> 1, Integer::sum)))
+            .entrySet()
   }
 
   public int four_of_a_kind() {
