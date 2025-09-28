@@ -1,6 +1,9 @@
 package victor.training.stream;
 
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Map;
+import java.util.function.Function;
 
 public class Yatzy {
 
