@@ -5,6 +5,8 @@ import java.util.Comparator;
 import java.util.Map;
 import java.util.function.Function;
 
+import static java.util.stream.Collectors.*;
+
 public class Yatzy {
 
   private final int[] dice;
