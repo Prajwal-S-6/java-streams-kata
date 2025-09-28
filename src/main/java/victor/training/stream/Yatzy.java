@@ -2,8 +2,10 @@ package victor.training.stream;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.*;
 
@@ -246,36 +248,53 @@ public class Yatzy {
   }
 
   public int fullHouse() {
-    boolean _2 = false;
-    int i;
-    int _2_at = 0;
-    boolean _3 = false;
-    int _3_at = 0;
+//    boolean _2 = false;
+//    int i;
+//    int _2_at = 0;
+//    boolean _3 = false;
+//    int _3_at = 0;
+//
+//
+//    int[] counts = new int[6];
+//    counts[dice[0] - 1]++;
+//    counts[dice[1] - 1]++;
+//    counts[dice[2] - 1]++;
+//    counts[dice[3] - 1]++;
+//    counts[dice[4] - 1]++;
+//
+//    for (i = 0; i != 6; i += 1)
+//      if (counts[i] == 2) {
+//        _2 = true;
+//        _2_at = i + 1;
+//      }
+//
+//    for (i = 0; i != 6; i += 1)
+//      if (counts[i] == 3) {
+//        _3 = true;
+//        _3_at = i + 1;
+//      }
+//
+//    if (_2 && _3)
+//      return _2_at * 2 + _3_at * 3;
+//    else
+//      return 0;
 
+    List<Map.Entry<Integer, Long>> entriesList = Arrays.stream(dice)
+            .boxed()
+            .collect(groupingBy(Function.identity(), counting()))
+            .entrySet()
+            .stream()
+            .filter(entry -> entry.getValue() == 2 || entry.getValue() == 3)
+            .toList();
 
-    int[] counts = new int[6];
-    counts[dice[0] - 1]++;
-    counts[dice[1] - 1]++;
-    counts[dice[2] - 1]++;
-    counts[dice[3] - 1]++;
-    counts[dice[4] - 1]++;
+    if(entriesList.size() == 2) {
+      return entriesList
+              .stream()
+              .mapToInt(entry -> entry.getKey() * entry.getValue().intValue())
+              .reduce(0, Integer::sum);
+    }
+    return 0;
 
-    for (i = 0; i != 6; i += 1)
-      if (counts[i] == 2) {
-        _2 = true;
-        _2_at = i + 1;
-      }
-
-    for (i = 0; i != 6; i += 1)
-      if (counts[i] == 3) {
-        _3 = true;
-        _3_at = i + 1;
-      }
-
-    if (_2 && _3)
-      return _2_at * 2 + _3_at * 3;
-    else
-      return 0;
   }
 
   public int yatzy() {
