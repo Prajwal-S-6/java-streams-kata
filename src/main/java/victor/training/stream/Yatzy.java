@@ -150,6 +150,9 @@ public class Yatzy {
 //    int n = 0;
 //    int score = 0;
 //    for (int i = 0; i < 6; i += 1)
+//      if (counts[6 - i - 1] >= 2) {
+//        n++;
+//        score += (6 - i);
   }
 
   public int four_of_a_kind() {
