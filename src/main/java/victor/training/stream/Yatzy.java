@@ -156,6 +156,8 @@ public class Yatzy {
 //      }
 //    if (n == 2)
 //      return score * 2;
+//    else
+//      return 0;
   }
 
   public int four_of_a_kind() {
