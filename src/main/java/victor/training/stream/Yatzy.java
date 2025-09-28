@@ -298,13 +298,22 @@ public class Yatzy {
   }
 
   public int yatzy() {
-    int[] counts = new int[6];
-    for (int die : dice)
-      counts[die - 1]++;
-    for (int i = 0; i != 6; i++)
-      if (counts[i] == 5)
-        return 50;
-    return 0;
+//    int[] counts = new int[6];
+//    for (int die : dice)
+//      counts[die - 1]++;
+//    for (int i = 0; i != 6; i++)
+//      if (counts[i] == 5)
+//        return 50;
+//    return 0;
+    return Arrays.stream(dice)
+            .boxed()
+            .collect(groupingBy(Function.identity(), counting()))
+            .values()
+            .stream()
+            .filter(value -> value == 5)
+            .findAny()
+            .map(entry -> 50)
+            .orElse(0);
   }
 }
 
