@@ -158,6 +158,8 @@ public class Yatzy {
 //      return score * 2;
 //    else
 //      return 0;
+    return Arrays.stream(dice)
+            .boxed()
   }
 
   public int four_of_a_kind() {
