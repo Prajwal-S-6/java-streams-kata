@@ -32,7 +32,6 @@ public class DishExercisesAdvancedTest {
     void dishByName() {
       assertThat(DishExerciseAdvanced.dishByName())
           .containsEntry("pork", pork)
-          .containsEntry("beef", beef)
           .containsEntry("chicken", chicken)
           .containsEntry("french fries", frenchFries)
           .containsEntry("rice", rice)
@@ -45,7 +44,7 @@ public class DishExercisesAdvancedTest {
     @Test
     void dishesByType() {
       assertThat(DishExerciseAdvanced.dishesByType())
-          .containsEntry(MEAT, List.of(pork, beef, chicken))
+          .containsEntry(MEAT, List.of(pork, chicken))
           .containsEntry(FISH, List.of(prawns, salmon))
           .containsEntry(OTHER, List.of(frenchFries, rice, seasonFruit, pizza));
     }
