@@ -70,12 +70,14 @@ public class DishExercise {
     return menu.stream()
             .filter(Dish::isVegetarian)
             .map(Dish::getName)
-            .toList();  
+            .toList();
   }
 
   public static List<String> namesOfLowCalories() {
-    // TODO return the names of all dishes < 400 calories
-    return null;
+    return menu.stream()
+            .filter(dish -> dish.getCalories() < 400)
+            .map(Dish::getName)
+            .toList();
   }
 
   public static List<String> namesInUpper() {
