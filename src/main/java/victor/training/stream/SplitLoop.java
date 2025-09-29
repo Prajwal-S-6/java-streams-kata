@@ -16,6 +16,9 @@ public class SplitLoop {
 //        throw new IllegalArgumentException("Transient order found");
 //      }
 //      if (order.paymentMethod() == CARD) {
+//        cardTotal += order.total();
+//        continue;
+//      }
   }
   public record Result(double cardTotal, double cashReimbursedTotal) {
 
