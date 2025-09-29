@@ -4,6 +4,7 @@ import victor.training.stream.dish.Dish.Type;
 
 import java.math.BigDecimal;
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static victor.training.stream.dish.Dish.Type.*;
 
@@ -100,9 +101,9 @@ public class DishExercise {
   }
 
   public static Set<Type> allTypesAsSet() {
-    // TODO return types of all the dishes in the menu as a set
-    // Hint: use .collect(Collectors.toSet())
-    return null;
+    return menu.stream()
+            .map(Dish::getType)
+            .collect(Collectors.toSet());
   }
   // endregion
 
