@@ -48,8 +48,9 @@ public class DishExercise {
   }
 
   public static List<Dish> multiWord() {
-    // TODO dishes with name containing >= 2 words
-    return null;
+    return menu.stream()
+            .filter(dish -> dish.getName().contains(" "))
+            .toList();
   }
   // endregion
 
