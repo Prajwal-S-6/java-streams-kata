@@ -24,6 +24,9 @@ public class SplitLoop {
       }
     }
     return new Result(cardTotal, cashReimbursedTotal);
+//    double cardTotal = 0;
+//    double cashReimbursedTotal = 0;
+//    for (Order order : orders) {
   }
   public record Result(double cardTotal, double cashReimbursedTotal) {
 
