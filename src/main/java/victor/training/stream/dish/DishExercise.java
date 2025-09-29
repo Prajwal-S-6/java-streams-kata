@@ -10,7 +10,6 @@ import static victor.training.stream.dish.Dish.Type.*;
 public class DishExercise {
   public static final List<Dish> menu = Arrays.asList(
       new Dish("pork", false, 800, MEAT),
-      new Dish("beef", false, 700, MEAT),
       new Dish("chicken", false, 400, MEAT),
       new Dish("french fries", true, 530, OTHER),
       new Dish("rice", true, 350, OTHER),
@@ -23,15 +22,17 @@ public class DishExercise {
     // TODO feel free to call any method here to experiment it
   }
 
-  // region === .filter() ===
   public static List<Dish> lowCalories() {
-    // TODO select the low-calories (<400) items
-    return null;
+     return menu.stream()
+            .filter(dish -> dish.getCalories() <=350)
+            .toList();
   }
 
   public static List<Dish> highCalorie() {
-    // TODO find out three high-calorie dishes
-    return List.of();
+    return menu.stream()
+            .sorted(Comparator.comparing(Dish::getCalories, Comparator.reverseOrder()))
+            .limit(4)
+            .toList();
   }
 
   public static List<Dish> vegetarian() {
