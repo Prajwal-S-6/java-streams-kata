@@ -14,8 +14,8 @@ public class SplitLoopTest {
 
   @Test
   public void cardTotalWithCardPayment() {
-    Order order1 = new Order().total(100).paymentMethod(CARD);
-    Order order2 = new Order().total(200).paymentMethod(CARD);
+    Order order1 = new Order(1).total(100).paymentMethod(CARD);
+    Order order2 = new Order(2).total(200).paymentMethod(CARD);
 
     Result result = sut.blob(List.of(order1, order2));
 
@@ -24,7 +24,7 @@ public class SplitLoopTest {
 
   @Test
   public void cardTotalWithNonCardPayment() {
-    Order order = new Order().total(100).paymentMethod(CASH_ON_SITE);
+    Order order = new Order(1).total(100).paymentMethod(CASH_ON_SITE);
 
     Result result = sut.blob(List.of(order));
 
@@ -33,9 +33,9 @@ public class SplitLoopTest {
 
   @Test
   public void cashReimbursedTotalIfReturnReasonPresent() {
-    Order cashOrder1 = new Order().total(100).returnReason("Erroneous");
-    Order cashOrder2 = new Order().total(50).returnReason("Erroneous");
-    Order cardOrder = new Order().total(300).paymentMethod(CARD).returnReason("Erroneous");
+    Order cashOrder1 = new Order(1).total(100).returnReason("Erroneous");
+    Order cashOrder2 = new Order(2).total(50).returnReason("Erroneous");
+    Order cardOrder = new Order(3).total(300).paymentMethod(CARD).returnReason("Erroneous");
 
     Result result = sut.blob(List.of(cashOrder1, cashOrder2, cardOrder));
 
