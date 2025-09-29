@@ -22,6 +22,9 @@ public class SplitLoop {
 //      if (order.returnReason().isPresent()) {
 //        cashReimbursedTotal += order.total();
 //      }
+//    }
+//    return new Result(cardTotal, cashReimbursedTotal);
+
   }
   public record Result(double cardTotal, double cashReimbursedTotal) {
 
