@@ -25,6 +25,7 @@ public class SplitLoop {
 //    }
 //    return new Result(cardTotal, cashReimbursedTotal);
 
+    boolean isInvalidOrder = orders.stream().anyMatch(order -> order.id() == null);
     double cardTotal = orders.stream()
             .filter(order -> order.paymentMethod() == CARD)
   }
