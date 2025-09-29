@@ -70,7 +70,7 @@ public class DishExercise {
     return menu.stream()
             .filter(Dish::isVegetarian)
             .map(Dish::getName)
-            .toList();
+            .toList();  
   }
 
   public static List<String> namesOfLowCalories() {
