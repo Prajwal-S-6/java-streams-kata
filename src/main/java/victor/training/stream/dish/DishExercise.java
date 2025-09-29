@@ -61,8 +61,9 @@ public class DishExercise {
   }
 
   public static List<Dish.Type> types() {
-    // TODO return the types of all the dishes
-    return null;
+    return menu.stream()
+            .map(Dish::getType)
+            .toList();
   }
 
   public static List<String> namesOfVegetarianDishes() {
