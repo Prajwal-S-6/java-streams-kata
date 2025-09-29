@@ -55,8 +55,9 @@ public class DishExercise {
 
   // region === .map ===
   public static List<String> names() {
-    // TODO return the names of all the dishes
-    return null;
+    return menu.stream()
+            .map(Dish::getName)
+            .toList();
   }
 
   public static List<Dish.Type> types() {
