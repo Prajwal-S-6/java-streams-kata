@@ -81,13 +81,15 @@ public class DishExercise {
   }
 
   public static List<String> namesInUpper() {
-    // TODO return the names of all dishes in UPPERCASE
-    return null;
+    return menu.stream()
+            .map(dish -> dish.getName().toUpperCase())
+            .toList();
   }
 
   public static List<Dish> newDishesWithNameUpperCase() {
-    // TODO return a list of new dishes that have the name put in upper-case (and the same old attributes).
-    return null;
+    return menu.stream()
+            .map(dish -> new Dish(dish.getName().toUpperCase(), dish.isVegetarian(), dish.getCalories(), dish.getType()))
+            .toList(); 
   }
 
   public static List<Type> allTypesDistinct() {
