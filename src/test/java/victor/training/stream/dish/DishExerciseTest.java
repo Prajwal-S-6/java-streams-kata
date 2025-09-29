@@ -16,14 +16,13 @@ import static victor.training.stream.dish.Dish.Type.*;
 
 public class DishExerciseTest {
   static final Dish pork = DishExercise.menu.get(0);
-  static final Dish beef = DishExercise.menu.get(1);
-  static final Dish chicken = DishExercise.menu.get(2);
-  static final Dish frenchFries = DishExercise.menu.get(3);
-  static final Dish rice = DishExercise.menu.get(4);
-  static final Dish seasonFruit = DishExercise.menu.get(5);
-  static final Dish pizza = DishExercise.menu.get(6);
-  static final Dish prawns = DishExercise.menu.get(7);
-  static final Dish salmon = DishExercise.menu.get(8);
+  static final Dish chicken = DishExercise.menu.get(1);
+  static final Dish frenchFries = DishExercise.menu.get(2);
+  static final Dish rice = DishExercise.menu.get(3);
+  static final Dish seasonFruit = DishExercise.menu.get(4);
+  static final Dish pizza = DishExercise.menu.get(5);
+  static final Dish prawns = DishExercise.menu.get(6);
+  static final Dish salmon = DishExercise.menu.get(7);
 
   @Nested
   class FilterTests {
@@ -36,7 +35,7 @@ public class DishExerciseTest {
     @Test
     void highCalorie() {
       assertThat(DishExercise.highCalorie())
-          .containsExactlyInAnyOrder(pork, beef, frenchFries, pizza, salmon);
+          .containsExactlyInAnyOrder(pork, frenchFries, pizza, salmon);
     }
 
     @Test
@@ -48,7 +47,7 @@ public class DishExerciseTest {
     @Test
     void nonFish() {
       assertThat(DishExercise.nonFish())
-          .containsExactlyInAnyOrder(pork, beef, chicken, frenchFries, rice, seasonFruit, pizza);
+          .containsExactlyInAnyOrder(pork,  chicken, frenchFries, rice, seasonFruit, pizza);
     }
 
     @Test
@@ -63,7 +62,7 @@ public class DishExerciseTest {
     @Test
     void names() {
       assertThat(DishExercise.names())
-          .containsExactlyInAnyOrder("pork", "beef", "chicken", "french fries", "rice", "season fruit", "pizza", "prawns", "salmon");
+          .containsExactlyInAnyOrder("pork", "chicken", "french fries", "rice", "season fruit", "pizza", "prawns", "salmon");
     }
 
     @Test
@@ -87,14 +86,14 @@ public class DishExerciseTest {
     @Test
     void namesInUpper() {
       assertThat(DishExercise.namesInUpper())
-          .containsExactlyInAnyOrder("PORK", "BEEF", "CHICKEN", "FRENCH FRIES", "RICE", "SEASON FRUIT", "PIZZA", "PRAWNS", "SALMON");
+          .containsExactlyInAnyOrder("PORK", "CHICKEN", "FRENCH FRIES", "RICE", "SEASON FRUIT", "PIZZA", "PRAWNS", "SALMON");
     }
 
     @Test
     void newDishesWithNameUpperCase() {
       assertThat(DishExercise.newDishesWithNameUpperCase())
           .extracting(Dish::getName)
-          .containsExactlyInAnyOrder("PORK", "BEEF", "CHICKEN", "FRENCH FRIES", "RICE", "SEASON FRUIT", "PIZZA", "PRAWNS", "SALMON");
+          .containsExactlyInAnyOrder("PORK", "CHICKEN", "FRENCH FRIES", "RICE", "SEASON FRUIT", "PIZZA", "PRAWNS", "SALMON");
     }
 
     @Test
@@ -161,25 +160,25 @@ public class DishExerciseTest {
     @Test
     void sortedByName() {
       assertThat(DishExercise.sortedByName())
-          .containsExactlyInAnyOrder(pork, beef, chicken, frenchFries, rice, seasonFruit, pizza, prawns, salmon);
+          .containsExactlyInAnyOrder(pork,  chicken, frenchFries, rice, seasonFruit, pizza, prawns, salmon);
     }
 
     @Test
     void sortedByCalories() {
       assertThat(DishExercise.sortedByCalories())
-          .containsExactlyInAnyOrder(rice, seasonFruit, prawns, chicken, salmon, pizza, frenchFries, beef, pork);
+          .containsExactlyInAnyOrder(rice, seasonFruit, prawns, chicken, salmon, pizza, frenchFries,  pork);
     }
 
     @Test
     void sortedByCaloriesDescending() {
       assertThat(DishExercise.sortedByCaloriesDescending())
-          .containsExactlyInAnyOrder(pork, beef, frenchFries, pizza, salmon, chicken, prawns, rice, seasonFruit);
+          .containsExactlyInAnyOrder(pork,  frenchFries, pizza, salmon, chicken, prawns, rice, seasonFruit);
     }
 
     @Test
     void sortedByTypeThenByName() {
       assertThat(DishExercise.sortedByTypeThenByName())
-          .containsExactlyInAnyOrder(beef, chicken, pork, salmon, prawns, frenchFries, pizza, rice, seasonFruit);
+          .containsExactlyInAnyOrder( chicken, pork, salmon, prawns, frenchFries, pizza, rice, seasonFruit);
     }
 
     @Test
@@ -190,18 +189,18 @@ public class DishExerciseTest {
     @Test
     void top3Caloric() {
       assertThat(DishExercise.top3Caloric())
-          .containsExactlyInAnyOrder(pork, beef, pizza);
+          .containsExactlyInAnyOrder(pork,  pizza);
     }
 
     @Test
     void secondMostCaloric() {
-      assertThat(DishExercise.secondMostCaloric()).isEqualTo(beef);
+      assertThat(DishExercise.secondMostCaloric()).isEqualTo(pork);
     }
 
     @Test
     void secondAndThirdMostCaloric() {
       assertThat(DishExercise.secondAndThirdMostCaloric())
-          .containsExactlyInAnyOrder(beef, pizza);
+          .containsExactlyInAnyOrder( pizza);
     }
 
     @Test
@@ -212,7 +211,7 @@ public class DishExerciseTest {
     @Test
     void meatOptions() {
       assertThat(DishExercise.meatOptions())
-          .containsExactlyInAnyOrder(pork, beef);
+          .containsExactlyInAnyOrder(pork);
     }
   }
 
@@ -221,19 +220,19 @@ public class DishExerciseTest {
     @Test
     void namesCommaSeparated() {
       assertThat(DishExercise.namesCommaSeparated())
-          .isEqualTo("beef,chicken,french fries,pizza,pork,prawns,rice,salmon,season fruit");
+          .isEqualTo("chicken,french fries,pizza,pork,prawns,rice,salmon,season fruit");
     }
 
     @Test
     void toMenuString() {
       assertThat(DishExercise.toMenuString())
-          .isEqualTo("pork (800 cal)\nbeef (700 cal)\nchicken (400 cal)\nfrench fries (530 cal), veg\nrice (350 cal), veg\nseason fruit (120 cal), veg\npizza (550 cal)\nprawns (300 cal)\nsalmon (450 cal)");
+          .isEqualTo("pork (800 cal)\n (700 cal)\nchicken (400 cal)\nfrench fries (530 cal), veg\nrice (350 cal), veg\nseason fruit (120 cal), veg\npizza (550 cal)\nprawns (300 cal)\nsalmon (450 cal)");
     }
 
     @Test
     void toIstambulMenuString() {
       assertThat(DishExercise.toIstambulMenuString())
-          .isEqualTo("beef (700 cal)\nchicken (400 cal)\nfrench fries (530 cal), veg\nrice (350 cal), veg\nseason fruit (120 cal), veg\npizza (550 cal)\nprawns (300 cal)\nsalmon (450 cal)");
+          .isEqualTo("(700 cal)\nchicken (400 cal)\nfrench fries (530 cal), veg\nrice (350 cal), veg\nseason fruit (120 cal), veg\npizza (550 cal)\nprawns (300 cal)\nsalmon (450 cal)");
     }
   }
 
