@@ -42,8 +42,9 @@ public class DishExercise {
   }
 
   public static List<Dish> nonFish() {
-    // TODO dishes except FISH
-    return null;
+    return menu.stream()
+            .filter(dish -> dish.getType() != FISH)
+            .toList();
   }
 
   public static List<Dish> multiWord() {
