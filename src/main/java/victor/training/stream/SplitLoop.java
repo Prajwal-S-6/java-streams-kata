@@ -25,6 +25,8 @@ public class SplitLoop {
 //    }
 //    return new Result(cardTotal, cashReimbursedTotal);
 
+    double cardTotal = orders.stream()
+            .filter(order -> order.paymentMethod() == CARD)
   }
   public record Result(double cardTotal, double cashReimbursedTotal) {
 
