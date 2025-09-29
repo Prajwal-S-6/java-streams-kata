@@ -28,6 +28,8 @@ public class SplitLoop {
     boolean isInvalidOrder = orders.stream().anyMatch(order -> order.id() == null);
     double cardTotal = orders.stream()
             .filter(order -> order.paymentMethod() == CARD)
+            .map(Order::total)
+            .reduce(Double::sum).orElse(0D);
   }
   public record Result(double cardTotal, double cashReimbursedTotal) {
 
