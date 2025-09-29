@@ -30,6 +30,11 @@ public class SplitLoop {
             .filter(order -> order.paymentMethod() == CARD)
             .map(Order::total)
             .reduce(Double::sum).orElse(0D);
+    double cashReimbursedTotal = orders.stream()
+            .filter(order -> order.paymentMethod() != CARD && order.returnReason().isPresent())
+            .map(Order::total)
+            .reduce(Double::sum).orElse(0D);
+
   }
   public record Result(double cardTotal, double cashReimbursedTotal) {
 
