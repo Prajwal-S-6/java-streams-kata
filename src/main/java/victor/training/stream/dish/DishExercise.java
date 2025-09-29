@@ -67,8 +67,10 @@ public class DishExercise {
   }
 
   public static List<String> namesOfVegetarianDishes() {
-    // TODO return the names of all vegetarian dishes
-    return null;
+    return menu.stream()
+            .filter(Dish::isVegetarian)
+            .map(Dish::getName)
+            .toList();
   }
 
   public static List<String> namesOfLowCalories() {
