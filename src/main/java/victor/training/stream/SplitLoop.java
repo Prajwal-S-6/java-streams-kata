@@ -35,6 +35,8 @@ public class SplitLoop {
             .map(Order::total)
             .reduce(Double::sum).orElse(0D);
 
+    if(isInvalidOrder) throw new IllegalArgumentException("Transient order found");
+    else return new Result(cardTotal, cashReimbursedTotal);
   }
   public record Result(double cardTotal, double cashReimbursedTotal) {
 
