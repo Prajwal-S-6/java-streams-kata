@@ -36,8 +36,9 @@ public class DishExercise {
   }
 
   public static List<Dish> vegetarian() {
-    // TODO find vegetarian dishes
-    return null;
+    return menu.stream()
+            .filter(Dish::isVegetarian)
+            .toList();
   }
 
   public static List<Dish> nonFish() {
