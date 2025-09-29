@@ -89,13 +89,14 @@ public class DishExercise {
   public static List<Dish> newDishesWithNameUpperCase() {
     return menu.stream()
             .map(dish -> new Dish(dish.getName().toUpperCase(), dish.isVegetarian(), dish.getCalories(), dish.getType()))
-            .toList(); 
+            .toList();
   }
 
   public static List<Type> allTypesDistinct() {
-    // TODO return types of all the dishes in the menu. Your result should not contain duplicates
-    // Hint: use .distinct()
-    return null;
+    return menu.stream()
+            .map(Dish::getType)
+            .distinct()
+            .toList();
   }
 
   public static Set<Type> allTypesAsSet() {
