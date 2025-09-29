@@ -30,7 +30,7 @@ public class DishExercise {
 
   public static List<Dish> highCalorie() {
     return menu.stream()
-            .sorted(Comparator.comparing(Dish::getCalories, Comparator.reverseOrder()))
+            .filter(dish -> dish.getCalories() > 400)
             .limit(4)
             .toList();
   }
@@ -52,7 +52,6 @@ public class DishExercise {
             .filter(dish -> dish.getName().contains(" "))
             .toList();
   }
-  // endregion
 
   // region === .map ===
   public static List<String> names() {
