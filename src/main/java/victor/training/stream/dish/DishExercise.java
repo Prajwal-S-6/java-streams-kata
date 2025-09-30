@@ -114,8 +114,7 @@ public class DishExercise {
   }
 
   public Boolean noneFish() {
-      return menu.stream()
-              .noneMatch(dish -> dish.getType() == FISH && dish.getCalories() > 500);
+      
   }
 
   public Boolean vegetarianArentMeat() {
@@ -129,8 +128,9 @@ public class DishExercise {
   }
 
   public Boolean kForMeat() {
-    // TODO return true if all dishes with name containing 'k' have the type MEAT
-    return null;
+    return menu.stream()
+            .filter(dish -> dish.getType() == MEAT)
+            .allMatch(dish -> dish.getName().contains("k"));
   }
   // endregion
 
