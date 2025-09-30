@@ -167,8 +167,9 @@ public class DishExercise {
   }
 
   public static List<Dish> sortedByCalories() {
-    // TODO return dishes sorted by name, ascending (low-->high)
-    return null;
+    return menu.stream()
+            .sorted(Comparator.comparing(Dish::getCalories))
+            .toList();
   }
 
   public static List<Dish> sortedByCaloriesDescending() {
