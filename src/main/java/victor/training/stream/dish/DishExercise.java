@@ -124,7 +124,8 @@ public class DishExercise {
   }
 
   public Boolean allAreUnder1000cal() {
-    
+    return menu.stream()
+            .allMatch(dish -> dish.getCalories() < 1000);
   }
 
   public Boolean kForMeat() {
