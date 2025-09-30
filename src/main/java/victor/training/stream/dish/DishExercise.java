@@ -139,8 +139,10 @@ public class DishExercise {
   // region === .findFirst ===
   public static Dish lowCaloriesMeat() {
     // TODO return any dish of type MEAT with under 500 calories. If none matches, throw an exception.
-    // Hint: use .findFirst() & .orElseThrow()
-    return null;
+    return menu.stream()
+            .filter(dish -> dish.getType() == MEAT && dish.getCalories() < 500)
+            .findFirst()
+            .orElseThrow();
   }
   public static Dish fries() {
     // TODO return any dish with name containing fries. If none matches, return null;
