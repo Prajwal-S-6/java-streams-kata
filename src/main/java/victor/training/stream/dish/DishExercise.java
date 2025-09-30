@@ -161,8 +161,9 @@ public class DishExercise {
 
   // region === .max(c) & .sorted(c) with c=Comparator.comparing(element->sorting key) ===
   public static List<Dish> sortedByName() {
-    // TODO return dishes sorted by name
-    return null;
+    return menu.stream()
+            .sorted(Comparator.comparing(Dish::getName))
+            .toList();
   }
 
   public static List<Dish> sortedByCalories() {
