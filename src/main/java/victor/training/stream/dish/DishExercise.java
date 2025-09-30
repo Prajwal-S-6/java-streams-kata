@@ -155,7 +155,7 @@ public class DishExercise {
             .filter(dish -> dish.getName() == "pizza")
             .map(Dish::getCalories)
             .findFirst()
-            .orElse(0);
+            .orElseThrow();
   }
   // endregion
 
