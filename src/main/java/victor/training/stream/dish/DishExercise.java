@@ -114,8 +114,8 @@ public class DishExercise {
   }
 
   public Boolean noneFish() {
-    // TODO return true if all fish dishes have < 500 calories
-    return null;
+      return menu.stream()
+              .noneMatch(dish -> dish.getType() == FISH && dish.getCalories() > 500);
   }
 
   public Boolean vegetarianArentMeat() {
