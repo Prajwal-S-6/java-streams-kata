@@ -150,9 +150,14 @@ public class DishExercise {
             .orElse(null);
   }
 
-  public Dish pizzaCalories() {
+  public Integer pizzaCalories() {
     // TODO return the calories of the dish called 'pizza'
-    return null;
+    return menu.stream()
+            .filter(dish -> dish.getName() == "pizza")
+            .map(Dish::getCalories)
+            .findFirst()
+            .get();
+
   }
   // endregion
 
