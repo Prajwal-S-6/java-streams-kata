@@ -114,7 +114,9 @@ public class DishExercise {
   }
 
   public Boolean noneFish() {
-      
+      return menu.stream()
+              .filter(dish -> dish.getType() == FISH)
+              .noneMatch(dish -> dish.getCalories() > 500);
   }
 
   public Boolean vegetarianArentMeat() {
