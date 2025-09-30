@@ -109,8 +109,8 @@ public class DishExercise {
 
   // region === .anyMatch / .noneMatch / .allMatch ===
   public Boolean anyVegetarian() {
-    // TODO return true if I have any vegetarian dish
-    return null;
+    return menu.stream()
+            .anyMatch(Dish::isVegetarian);
   }
 
   public Boolean noneFish() {
