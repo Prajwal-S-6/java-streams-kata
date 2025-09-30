@@ -119,13 +119,12 @@ public class DishExercise {
   }
 
   public Boolean vegetarianArentMeat() {
-    // TODO true if no vegetarian dish has type = MEAT
-    return null;
+    return menu.stream()
+            .noneMatch(dish -> dish.isVegetarian() && dish.getType() == MEAT);
   }
 
   public Boolean allAreUnder1000cal() {
-    // TODO return true if all dishes have < 1000 calories
-    return null;
+    
   }
 
   public Boolean kForMeat() {
