@@ -144,7 +144,6 @@ public class DishExercise {
             .orElseThrow();
   }
   public static Dish fries() {
-    // TODO return any dish with name containing fries. If none matches, return null;
     return menu.stream()
             .filter(dish -> dish.getName().contains("fries"))
             .findAny()
