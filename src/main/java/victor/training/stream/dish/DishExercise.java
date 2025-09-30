@@ -151,13 +151,11 @@ public class DishExercise {
   }
 
   public Integer pizzaCalories() {
-    // TODO return the calories of the dish called 'pizza'
     return menu.stream()
             .filter(dish -> dish.getName() == "pizza")
             .map(Dish::getCalories)
             .findFirst()
-            .get();
-
+            .orElse(0);
   }
   // endregion
 
