@@ -217,7 +217,11 @@ public class DishExercise {
 
   public String higherVegetarianCalories() {
     // TODO return the name of the most caloric vegetarian dish
-    return null;
+    return menu.stream()
+            .filter(Dish::isVegetarian)
+            .max(Comparator.comparing(Dish::getCalories))
+            .map(Dish::getName)
+            .get();
   }
 
   public static List<Dish> meatOptions() {
