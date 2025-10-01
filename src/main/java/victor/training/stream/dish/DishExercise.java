@@ -179,8 +179,6 @@ public class DishExercise {
   }
 
   public static List<Dish> sortedByTypeThenByName() {
-    // TODO return dishes sorted first by type name, then by name ascending
-    // Hint: see tests for expected result
     return menu.stream()
             .sorted(Comparator.comparing(Dish::getType).thenComparing(Dish::getName))
             .toList();
@@ -188,7 +186,9 @@ public class DishExercise {
 
   public static Dish maxCaloric() {
     // TODO return the dish with the most calories
-    return null;
+    return menu.stream()
+            .max(Comparator.comparing(Dish::getCalories))
+            .get();
   }
 
   public static List<Dish> top3Caloric() {
