@@ -208,7 +208,11 @@ public class DishExercise {
 
   public static List<Dish> secondAndThirdMostCaloric() {
     // TODO find out the 2nd and 3rd most caloric items
-    return null;
+    return menu.stream()
+            .sorted(Comparator.comparing(Dish::getCalories).reversed())
+            .skip(1)
+            .limit(2)
+            .toList();
   }
 
   public String higherVegetarianCalories() {
