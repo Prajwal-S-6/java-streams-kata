@@ -211,7 +211,7 @@ public class DishExerciseTest {
     @Test
     void meatOptions() {
       assertThat(DishExercise.meatOptions())
-          .containsExactlyInAnyOrder(pork);
+          .containsExactlyInAnyOrder(pork, chicken);
     }
   }
 
