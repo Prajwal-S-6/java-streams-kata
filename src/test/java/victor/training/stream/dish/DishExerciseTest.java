@@ -200,7 +200,7 @@ public class DishExerciseTest {
     @Test
     void secondAndThirdMostCaloric() {
       assertThat(DishExercise.secondAndThirdMostCaloric())
-          .containsExactlyInAnyOrder( pizza);
+          .containsExactlyInAnyOrder(pizza, frenchFries);
     }
 
     @Test
