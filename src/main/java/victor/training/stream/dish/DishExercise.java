@@ -198,9 +198,12 @@ public class DishExercise {
   }
 
   public static Dish secondMostCaloric() {
-    // TODO return the 2nd highest caloric dish
-    // Hint: use .limit() + .skip()
-    return null;
+      return menu.stream()
+              .sorted(Comparator.comparing(Dish::getCalories).reversed())
+              .skip(1)
+              .findFirst()
+              .get();
+
   }
 
   public static List<Dish> secondAndThirdMostCaloric() {
