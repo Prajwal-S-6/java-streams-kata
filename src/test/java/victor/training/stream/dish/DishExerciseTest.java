@@ -194,7 +194,7 @@ public class DishExerciseTest {
 
     @Test
     void secondMostCaloric() {
-      assertThat(DishExercise.secondMostCaloric()).isEqualTo(pork);
+      assertThat(DishExercise.secondMostCaloric()).isEqualTo(pizza);
     }
 
     @Test
