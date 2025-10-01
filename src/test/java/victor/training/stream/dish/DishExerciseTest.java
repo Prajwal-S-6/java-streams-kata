@@ -189,7 +189,7 @@ public class DishExerciseTest {
     @Test
     void top3Caloric() {
       assertThat(DishExercise.top3Caloric())
-          .containsExactlyInAnyOrder(pork,  pizza);
+          .containsExactlyInAnyOrder(pork,  pizza, frenchFries);
     }
 
     @Test
