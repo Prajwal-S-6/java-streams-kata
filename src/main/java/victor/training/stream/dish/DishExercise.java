@@ -216,7 +216,6 @@ public class DishExercise {
   }
 
   public String higherVegetarianCalories() {
-    // TODO return the name of the most caloric vegetarian dish
     return menu.stream()
             .filter(Dish::isVegetarian)
             .max(Comparator.comparing(Dish::getCalories))
@@ -226,7 +225,10 @@ public class DishExercise {
 
   public static List<Dish> meatOptions() {
     // TODO find 2 dishes with meat. Don't return more than 2.
-    return null;
+    return menu.stream()
+            .filter(dish -> dish.getType() == MEAT)
+            .limit(2)
+            .toList();
   }
   // endregion
 
