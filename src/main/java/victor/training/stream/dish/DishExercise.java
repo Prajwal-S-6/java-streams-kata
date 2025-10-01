@@ -185,16 +185,16 @@ public class DishExercise {
   }
 
   public static Dish maxCaloric() {
-    // TODO return the dish with the most calories
     return menu.stream()
             .max(Comparator.comparing(Dish::getCalories))
             .get();
   }
 
   public static List<Dish> top3Caloric() {
-    // TODO return the top 3 dishes with the most calories
-    // Hint: use .limit()
-    return null;
+    return menu.stream()
+            .sorted(Comparator.comparing(Dish::getCalories).reversed())
+            .limit(3)
+            .toList();
   }
 
   public static Dish secondMostCaloric() {
