@@ -264,8 +264,9 @@ public class DishExercise {
   public static int totalCalories() {
     // TODO return the sum of all calories in the menu.
     //  If there is no item in the menu, return 0;
-    // Hint: use .mapToInt(Dish::getCalories).sum();
-    return 0;
+    return menu.stream()
+            .mapToInt(Dish::getCalories)
+            .sum();
   }
   public static double averageMeatCalories() {
     // TODO return the average of all calories in the menu.
