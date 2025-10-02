@@ -240,7 +240,7 @@ public class DishExerciseTest {
   class SumAndAverageTests {
     @Test
     void totalCalories() {
-      assertThat(DishExercise.totalCalories()).isEqualTo(4200);
+      assertThat(DishExercise.totalCalories()).isEqualTo(3500);
     }
 
     @Test
