@@ -251,10 +251,12 @@ public class DishExercise {
   }
 
 
-
     public static String toIstambulMenuString() {
-    // TODO same as above, but skipping the item named 'pork'
-    return null;
+    // same as above, but skipping the item named 'pork'
+        return menu.stream()
+                .filter(dish -> dish.getName() != "pork")
+                .map(Dish::getFormattedDishDetails)
+                .collect(Collectors.joining("\n"));
   }
   // endregion
 
