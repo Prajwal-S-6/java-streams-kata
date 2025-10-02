@@ -232,7 +232,7 @@ public class DishExerciseTest {
     @Test
     void toIstambulMenuString() {
       assertThat(DishExercise.toIstambulMenuString())
-          .isEqualTo("(700 cal)\nchicken (400 cal)\nfrench fries (530 cal), veg\nrice (350 cal), veg\nseason fruit (120 cal), veg\npizza (550 cal)\nprawns (300 cal)\nsalmon (450 cal)");
+          .isEqualTo("chicken (400 cal)\nfrench fries (530 cal), veg\nrice (350 cal), veg\nseason fruit (120 cal), veg\npizza (550 cal)\nprawns (300 cal)\nsalmon (450 cal)");
     }
   }
 
