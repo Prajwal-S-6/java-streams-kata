@@ -38,10 +38,10 @@ public class Dish {
   public String toString() {
     return name;
   }
-    static String getFormattedDishDetails(Dish dish) {
-        return dish.isVegetarian() ?
-                String.format("%s (%d cal), veg", dish.getName(), dish.getCalories()) :
-                String.format("%s (%d cal)", dish.getName(), dish.getCalories());
+     String getFormattedDishDetails() {
+        return this.isVegetarian() ?
+                String.format("%s (%d cal), veg", this.getName(), this.getCalories()) :
+                String.format("%s (%d cal)", this.getName(), this.getCalories());
     }
 
 
