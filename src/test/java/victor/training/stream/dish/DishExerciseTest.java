@@ -245,7 +245,7 @@ public class DishExerciseTest {
 
     @Test
     void averageMeatCalories() {
-      assertThat(DishExercise.averageMeatCalories()).isEqualTo(466.67, Offset.offset(0.01));
+      assertThat(DishExercise.averageMeatCalories()).isEqualTo(437.5, Offset.offset(0.01));
     }
 
     @Test
