@@ -1,5 +1,7 @@
 package victor.training.stream.dish;
 
+import java.util.function.Function;
+
 public class Dish {
   private final String name;
   private final boolean vegetarian;
@@ -31,9 +33,17 @@ public class Dish {
     return type;
   }
 
+
   @Override
   public String toString() {
     return name;
   }
+    static String getFormattedDishDetails(Dish dish) {
+        return dish.isVegetarian() ?
+                String.format("%s (%d cal), veg", dish.getName(), dish.getCalories()) :
+                String.format("%s (%d cal)", dish.getName(), dish.getCalories());
+    }
+
+
 
 }
