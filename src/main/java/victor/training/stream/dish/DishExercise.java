@@ -288,7 +288,9 @@ public class DishExercise {
 
   public static int charactersInTheNames() {
     // TODO return the total of all the name lengths (eg: "pork" has length = 4)
-    return 0;
+    return menu.stream()
+            .map(dish -> dish.getName().length())
+            .reduce(0, Integer::sum);
   }
 
   public static BigDecimal totalPriceForFish(Map<Dish, BigDecimal> pricePerDish) {
