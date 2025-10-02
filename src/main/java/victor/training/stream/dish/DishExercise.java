@@ -271,8 +271,10 @@ public class DishExercise {
   public static double averageMeatCalories() {
     // TODO return the average of all calories in the menu.
     //  If there is no item in the menu, return 0;
-    // Hint: use .mapToInt(..).average();
-    return 0;
+    return menu.stream()
+            .mapToDouble(Dish::getCalories)
+            .average()
+            .orElse(0);
   }
 
   public static double averageFishCalories() {
