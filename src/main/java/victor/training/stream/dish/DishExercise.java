@@ -298,7 +298,7 @@ public class DishExercise {
     //  The prices are provided as a method parameter
     return pricePerDish.values().stream()
             .reduce(BigDecimal::add)
-            .get();
+            .orElse(BigDecimal.ZERO);
   }
   // endregion
 }
