@@ -278,7 +278,7 @@ public class DishExercise {
   }
 
   public static double averageFishCalories() {
-    // TODO return the average of all calories of the FISH dishes. orElse(0)
+    // return the average of all calories of the FISH dishes. orElse(0)
     return menu.stream()
             .filter(dish -> dish.getType() == FISH)
             .mapToDouble(Dish::getCalories)
