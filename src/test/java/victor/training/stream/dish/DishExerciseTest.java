@@ -261,8 +261,8 @@ public class DishExerciseTest {
     @Test
     void totalPriceForFish() {
       Map<Dish, BigDecimal> pricePerDish = Map.of(
-          DishExercise.menu.get(7), new BigDecimal("12.50"),
-          DishExercise.menu.get(8), new BigDecimal("15.00")
+          DishExercise.menu.get(6), new BigDecimal("12.50"),
+          DishExercise.menu.get(7), new BigDecimal("15.00")
       );
       assertThat(DishExercise.totalPriceForFish(pricePerDish)).isEqualTo(new BigDecimal("27.50"));
     }
