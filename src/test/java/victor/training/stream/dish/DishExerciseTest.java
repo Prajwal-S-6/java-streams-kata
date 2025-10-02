@@ -226,7 +226,7 @@ public class DishExerciseTest {
     @Test
     void toMenuString() {
       assertThat(DishExercise.toMenuString())
-          .isEqualTo("pork (800 cal)\n (700 cal)\nchicken (400 cal)\nfrench fries (530 cal), veg\nrice (350 cal), veg\nseason fruit (120 cal), veg\npizza (550 cal)\nprawns (300 cal)\nsalmon (450 cal)");
+          .isEqualTo("pork (800 cal)\nchicken (400 cal)\nfrench fries (530 cal), veg\nrice (350 cal), veg\nseason fruit (120 cal), veg\npizza (550 cal)\nprawns (300 cal)\nsalmon (450 cal)");
     }
 
     @Test
