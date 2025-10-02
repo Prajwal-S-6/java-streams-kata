@@ -4,6 +4,7 @@ import victor.training.stream.dish.Dish.Type;
 
 import java.math.BigDecimal;
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import static victor.training.stream.dish.Dish.Type.*;
@@ -240,18 +241,18 @@ public class DishExercise {
             .collect(Collectors.joining(","));
   }
   public static String toMenuString() {
-    // TODO return a list of strings: transform each Dish to look like
+    // transform each Dish to look like
     //  "salmon (300 cal)"
     //  "french fries (530 cal), veg" -> veg means it's vegetarian
     // separate each lines with \n
     return menu.stream()
-            .map(dish -> dish.isVegetarian() ?
-                    String.format("%s (%d cal), veg", dish.getName(), dish.getCalories()) :
-                    String.format("%s (%d cal)", dish.getName(), dish.getCalories()))
+            .map(Dish::getFormattedDishDetails)
             .collect(Collectors.joining("\n"));
   }
 
-  public static String toIstambulMenuString() {
+
+
+    public static String toIstambulMenuString() {
     // TODO same as above, but skipping the item named 'pork'
     return null;
   }
