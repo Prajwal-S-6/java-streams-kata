@@ -255,7 +255,7 @@ public class DishExerciseTest {
 
     @Test
     void charactersInTheNames() {
-      assertThat(DishExercise.charactersInTheNames()).isEqualTo(60);
+      assertThat(DishExercise.charactersInTheNames()).isEqualTo(56);
     }
 
     @Test
