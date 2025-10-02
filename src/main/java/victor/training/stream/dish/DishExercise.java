@@ -244,7 +244,11 @@ public class DishExercise {
     //  "salmon (300 cal)"
     //  "french fries (530 cal), veg" -> veg means it's vegetarian
     // separate each lines with \n
-    return null;
+    return menu.stream()
+            .map(dish -> dish.isVegetarian() ?
+                    String.format("%s (%d cal), veg", dish.getName(), dish.getCalories()) :
+                    String.format("%s (%d cal)", dish.getName(), dish.getCalories()))
+            .collect(Collectors.joining("\n"));
   }
 
   public static String toIstambulMenuString() {
