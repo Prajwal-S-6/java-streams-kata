@@ -235,8 +235,10 @@ public class DishExercise {
   // region === .collect(Collectors.joining) ===
   public static String namesCommaSeparated() {
     // TODO return names of all dishes, sorted ascending, concatenated by ","
-    //  Hint: Use .collect(Collectors.joining(","))
-    return null;
+    return menu.stream()
+            .map(Dish::getName)
+            .sorted()
+            .collect(Collectors.joining(","));
   }
   public static String toMenuString() {
     // TODO return a list of strings: transform each Dish to look like
