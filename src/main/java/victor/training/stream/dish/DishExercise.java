@@ -262,7 +262,7 @@ public class DishExercise {
 
   // region === Int|DoubleStream / .sum / .average / .reduce ===
   public static int totalCalories() {
-    // TODO return the sum of all calories in the menu.
+    // return the sum of all calories in the menu.
     //  If there is no item in the menu, return 0;
     return menu.stream()
             .mapToInt(Dish::getCalories)
