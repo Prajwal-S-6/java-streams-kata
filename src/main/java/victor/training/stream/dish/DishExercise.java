@@ -296,7 +296,9 @@ public class DishExercise {
   public static BigDecimal totalPriceForFish(Map<Dish, BigDecimal> pricePerDish) {
     // TODO return the sum of all the prices of the dishes.
     //  The prices are provided as a method parameter
-    return null;
+    return pricePerDish.values().stream()
+            .reduce(BigDecimal::add)
+            .get();
   }
   // endregion
 }
