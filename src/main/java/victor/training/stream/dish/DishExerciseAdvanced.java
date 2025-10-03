@@ -1,8 +1,12 @@
 package victor.training.stream.dish;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
+
+import static victor.training.stream.dish.DishExercise.menu;
 
 public class DishExerciseAdvanced {
 
@@ -26,7 +30,11 @@ public class DishExerciseAdvanced {
   public static List<String> allWords() {
     // TODO return all the words of all the names of our dishes
     // For example, "season fruit" -> 2 words
-    return null;
+    return menu.stream()
+            .map(Dish::getName)
+            .map(s -> s.split(" "))
+            .flatMap(Arrays::stream)
+            .toList();
   }
 
   // endregion
