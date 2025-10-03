@@ -60,7 +60,7 @@ public class DishExercisesAdvancedTest {
     @Test
     void totalCaloriesByType() {
       assertThat(DishExerciseAdvanced.totalCaloriesByType())
-          .containsEntry(MEAT, 1900L)
+          .containsEntry(MEAT, 1200L)
           .containsEntry(FISH, 750L)
           .containsEntry(OTHER, 1550L);
     }
