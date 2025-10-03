@@ -28,7 +28,6 @@ public class DishExerciseAdvanced {
   }
 
   public static List<String> allWords() {
-    // TODO return all the words of all the names of our dishes
     // For example, "season fruit" -> 2 words
     return menu.stream()
             .map(dish -> dish.getName().split(" "))
