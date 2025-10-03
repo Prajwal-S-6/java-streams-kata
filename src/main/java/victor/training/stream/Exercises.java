@@ -22,9 +22,6 @@ public class Exercises {
   private final OrderMapper orderMapper = new OrderMapper();
 
   public List<OrderDto> p1_activeOrders(List<Order> orders) {
-    // TODO 1: simplify
-    // TODO 2: use the OrderDto constructor
-    // TODO 3: use the OrderMapper.toDto method
     List<OrderDto> dtos = new ArrayList<>();
 //    for (Order order : orders) {
 //      if (order.status() == COMPLETED) {
@@ -46,8 +43,6 @@ public class Exercises {
 
 //  public Order p2_findOrderById(List<Order> orders, int orderId) {
   public Optional<Order> p2_findOrderById(List<Order> orders, int orderId) {
-    // TODO 1: rewrite with streams
-    // TODO 2: return Optional<> and fix the tests
 //    for (Order order : orders) {
 //      if (order.id() == orderId) {
 //        return order;
@@ -59,7 +54,6 @@ public class Exercises {
 
   }
 
-  // TODO all the following: rewrite with streams
   public boolean p3_hasActiveOrders(List<Order> orders) {
 //    for (Order order : orders) {
 //      if (order.status() == COMPLETED) {
@@ -160,7 +154,7 @@ public class Exercises {
   /**
    * @return the products bought by the customer, with no duplicates, sorted by Product.name
    */
-  public List<Product> p7_productsSorted(List<Order> orders) { // TODO simplify
+  public List<Product> p7_productsSorted(List<Order> orders) {
 //    Set<Product> products = new HashSet<>();
 //    for (Order order : orders) {
 //      for (OrderLine line : order.orderLines()) {
