@@ -208,7 +208,6 @@ public class DishExercise {
   }
 
   public static List<Dish> secondAndThirdMostCaloric() {
-    // TODO find out the 2nd and 3rd most caloric items
     return menu.stream()
             .sorted(Comparator.comparing(Dish::getCalories).reversed())
             .skip(1)
@@ -225,7 +224,6 @@ public class DishExercise {
   }
 
   public static List<Dish> meatOptions() {
-    // TODO find 2 dishes with meat. Don't return more than 2.
     return menu.stream()
             .filter(dish -> dish.getType() == MEAT)
             .limit(2)
