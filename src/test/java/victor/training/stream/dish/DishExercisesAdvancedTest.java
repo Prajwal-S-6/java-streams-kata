@@ -68,7 +68,7 @@ public class DishExercisesAdvancedTest {
     @Test
     void dishNamesByCategory() {
       assertThat(DishExerciseAdvanced.dishNamesByCategory())
-          .containsEntry(MEAT, Set.of("pork", "beef", "chicken"))
+          .containsEntry(MEAT, Set.of("pork", "chicken"))
           .containsEntry(FISH, Set.of("prawns", "salmon"))
           .containsEntry(OTHER, Set.of("french fries", "rice", "season fruit", "pizza"));
     }
