@@ -17,9 +17,6 @@ public class DishExerciseAdvanced {
   );
 
   public static List<String> allAllergens() {
-    // TODO return all ingredients for any item in the menu
-    //  Look the items up in the allergens map above
-    //  Don't return any duplicates
     return allergens.values().stream()
             .flatMap(List::stream)
             .distinct()
