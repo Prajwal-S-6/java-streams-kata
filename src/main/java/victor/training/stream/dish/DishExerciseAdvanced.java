@@ -56,7 +56,6 @@ public class DishExerciseAdvanced {
   }
 
   public static Map<Dish.Type, Long> totalCaloriesByType() {
-    // TODO group dishes by type and sum up the calories of each group
     return menu.stream()
             .collect(groupingBy(Dish::getType, summingLong(Dish::getCalories)));
   }
