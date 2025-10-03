@@ -41,7 +41,6 @@ public class DishExerciseAdvanced {
 
   // region .groupingBy / .toMap
   public static Map<String, Dish> dishByName() {
-    // TODO the returned map has under the key=XYZ the Dish with name=XYZ
     return menu.stream()
             .collect(toMap(Dish::getName, Function.identity()));
   }
