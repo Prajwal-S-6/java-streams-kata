@@ -31,8 +31,7 @@ public class DishExerciseAdvanced {
     // TODO return all the words of all the names of our dishes
     // For example, "season fruit" -> 2 words
     return menu.stream()
-            .map(Dish::getName)
-            .map(s -> s.split(" "))
+            .map(dish -> dish.getName().split(" "))
             .flatMap(Arrays::stream)
             .toList();
   }
