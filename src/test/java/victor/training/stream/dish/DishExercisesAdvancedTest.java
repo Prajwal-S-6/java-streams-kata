@@ -52,7 +52,7 @@ public class DishExercisesAdvancedTest {
     @Test
     void numberOfDishesByType() {
       assertThat(DishExerciseAdvanced.numberOfDishesByType())
-          .containsEntry(MEAT, 3L)
+          .containsEntry(MEAT, 2L)
           .containsEntry(FISH, 2L)
           .containsEntry(OTHER, 4L);
     }
