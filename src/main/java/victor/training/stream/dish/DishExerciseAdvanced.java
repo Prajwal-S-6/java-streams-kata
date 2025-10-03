@@ -20,8 +20,10 @@ public class DishExerciseAdvanced {
     // TODO return all ingredients for any item in the menu
     //  Look the items up in the allergens map above
     //  Don't return any duplicates
-    // Hint: use .flatMap
-    return null;
+    return allergens.values().stream()
+            .flatMap(List::stream)
+            .distinct()
+            .toList();
   }
 
   public static List<String> allWords() {
