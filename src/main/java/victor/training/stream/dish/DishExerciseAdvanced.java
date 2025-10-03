@@ -61,7 +61,6 @@ public class DishExerciseAdvanced {
   }
 
   public static Map<Dish.Type, Set<String>> dishNamesByCategory() {
-    // TODO group dishes by type and sum up the calories of each group
     return menu.stream()
             .collect(groupingBy(Dish::getType, mapping(Dish::getName, toSet())));
   }
