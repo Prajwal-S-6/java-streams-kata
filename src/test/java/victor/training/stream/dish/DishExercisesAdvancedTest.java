@@ -22,7 +22,7 @@ public class DishExercisesAdvancedTest {
     @Test
     void allWords() {
       assertThat(DishExerciseAdvanced.allWords())
-          .containsExactlyInAnyOrder("pork", "beef", "chicken", "french", "fries", "rice", "season", "fruit", "pizza", "prawns", "salmon");
+          .containsExactlyInAnyOrder("pork", "chicken", "french", "fries", "rice", "season", "fruit", "pizza", "prawns", "salmon");
     }
   }
 
