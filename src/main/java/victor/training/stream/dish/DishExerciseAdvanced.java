@@ -51,7 +51,6 @@ public class DishExerciseAdvanced {
   }
 
   public static Map<Dish.Type, Long> numberOfDishesByType() {
-    // TODO group dishes by type and count how many are in each group.
     return menu.stream()
             .collect(groupingBy(Dish::getType, counting()));
   }
