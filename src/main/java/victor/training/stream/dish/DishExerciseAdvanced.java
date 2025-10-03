@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.toMap;
+import static java.util.stream.Collectors.*;
 import static victor.training.stream.dish.DishExercise.menu;
 
 public class DishExerciseAdvanced {
@@ -48,9 +48,8 @@ public class DishExerciseAdvanced {
   public static Map<Dish.Type, List<Dish>> dishesByType() {
     // TODO group dishes by type.
     //  For example, in the returned Map, under the key MEAT will be all the Dishes with type=meat
-    // Hint: use .collect(Collectors.groupingBy(..))
-    // in .. write an expression that returns from one element the gey used for grouping
-    return null;
+    return menu.stream()
+            .collect(groupingBy(Dish::getType, Collectors.mapping(Function.identity(), toList())));
   }
   public static Map<Dish.Type, Long> numberOfDishesByType() {
     // TODO group dishes by type and count how many are in each group.
