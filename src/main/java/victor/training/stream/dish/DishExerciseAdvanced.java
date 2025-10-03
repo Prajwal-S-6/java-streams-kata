@@ -57,13 +57,12 @@ public class DishExerciseAdvanced {
 
   public static Map<Dish.Type, Long> totalCaloriesByType() {
     // TODO group dishes by type and sum up the calories of each group
-    // Hint: use .collect(Collectors.groupingBy(.. , Collectors.summingInt(Dish::getCalories)))
-    return null;
+    return menu.stream()
+            .collect(groupingBy(Dish::getType, summingLong(Dish::getCalories)));
   }
 
   public static Map<Dish.Type, Set<String>> dishNamesByCategory() {
     // TODO group dishes by type and sum up the calories of each group
-    // Hint: use .collect(Collectors.groupingBy(.. , Collectors.mapping(Dish::getName, toSet())))
     return null;
   }
   // endregion
