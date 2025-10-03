@@ -49,11 +49,11 @@ public class DishExerciseAdvanced {
     return menu.stream()
             .collect(groupingBy(Dish::getType, Collectors.mapping(Function.identity(), toList())));
   }
+
   public static Map<Dish.Type, Long> numberOfDishesByType() {
     // TODO group dishes by type and count how many are in each group.
-    // Hint: use .collect(Collectors.groupingBy(.. , Collectors.counting()))
-    // in .. write an expression that returns from one element the gey used for grouping
-    return null;
+    return menu.stream()
+            .collect(groupingBy(Dish::getType, counting()));
   }
 
   public static Map<Dish.Type, Long> totalCaloriesByType() {
