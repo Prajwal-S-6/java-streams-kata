@@ -4,8 +4,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import static java.util.stream.Collectors.toMap;
 import static victor.training.stream.dish.DishExercise.menu;
 
 public class DishExerciseAdvanced {
@@ -40,8 +42,8 @@ public class DishExerciseAdvanced {
   // region .groupingBy / .toMap
   public static Map<String, Dish> dishByName() {
     // TODO the returned map has under the key=XYZ the Dish with name=XYZ
-    // Hint: use .collect(Collectors.toMap(<key-extractor>, dish->dish));
-    return null;
+    return menu.stream()
+            .collect(toMap(Dish::getName, Function.identity()));
   }
 
   public static Map<Dish.Type, List<Dish>> dishesByType() {
