@@ -46,8 +46,6 @@ public class DishExerciseAdvanced {
   }
 
   public static Map<Dish.Type, List<Dish>> dishesByType() {
-    // TODO group dishes by type.
-    //  For example, in the returned Map, under the key MEAT will be all the Dishes with type=meat
     return menu.stream()
             .collect(groupingBy(Dish::getType, Collectors.mapping(Function.identity(), toList())));
   }
