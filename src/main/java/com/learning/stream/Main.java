@@ -73,12 +73,27 @@ public class Main {
         List<Employee> employees = List.of(
                 new Employee(1, "A", 26, "IT", 20000),
                 new Employee(2, "B", 23, "Sales", 30000),
-                new Employee(3, "C", 21, "Engineering", 50000)
+                new Employee(3, "C", 21, "Engineering", 70000)
         );
         List<String> employeeNames = employees.stream()
                 .map(Employee::name)
                 .toList();
         System.out.println(employeeNames);
+
+        List<Employee> employeeWithSalaryMoreThan50k = employees.stream()
+                .filter(emp -> emp.salary() > 50000)
+                .toList();
+        System.out.println(employeeWithSalaryMoreThan50k);
+
+        Double averageSalary = employees.stream()
+                .collect(Collectors.averagingDouble(Employee::salary));
+        System.out.println(averageSalary);
+
+        Comparator<Employee> employeeComparator = (e1, e2) -> e1.salary() > e2.salary() ? 1 : -1;
+        Employee employeeWithHighestSalary = employees.stream()
+                .max(employeeComparator)
+                .get();
+        System.out.println(employeeWithHighestSalary);
 
 
 
