@@ -69,7 +69,16 @@ public class Main {
                 .toList();
         System.out.println(skipFirst3Nums);
 
-
+        //--------------------------------------------------------------------------------
+        List<Employee> employees = List.of(
+                new Employee(1, "A", 26, "IT", 20000),
+                new Employee(2, "B", 23, "Sales", 30000),
+                new Employee(3, "C", 21, "Engineering", 50000)
+        );
+        List<String> employeeNames = employees.stream()
+                .map(Employee::name)
+                .toList();
+        System.out.println(employeeNames);
 
 
 
