@@ -64,6 +64,11 @@ public class Main {
                 .toList();
         System.out.println(top3HighestNumber);
 
+        var skipFirst3Nums = numbersList6.stream()
+                .skip(3)
+                .toList();
+        System.out.println(skipFirst3Nums);
+
 
 
 
