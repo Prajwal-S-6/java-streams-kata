@@ -1,7 +1,11 @@
 package com.learning.stream;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,6 +25,16 @@ public class Main {
                 .filter(num -> num > 10)
                 .count();
         System.out.println(numbersCountGreaterThan10);
+
+        var reversedSorted = IntStream.range(0, 10)
+                .boxed()
+                .sorted(Comparator.reverseOrder())
+                .peek(System.out::print)
+                .toArray();
+
+
+
+
 
 
     }
