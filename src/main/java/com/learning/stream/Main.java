@@ -39,6 +39,19 @@ public class Main {
                 .orElseGet(() -> -1);
         System.out.println(firstElementGreaterThan50);
 
+        //----------------------------------------------------------------------------------------
+        List<Integer> numbersList4 = List.of(1,2,2,3,4,4,5);
+        var distinctNumbers = numbersList4.stream()
+                .distinct()
+                .toList();
+        System.out.println(distinctNumbers);
+
+        List<Integer> numbersList5 = List.of(1,2,3,4);
+        var sumOfAllNumbers = numbersList5.stream()
+                .reduce(Integer::sum)
+                .orElseGet(() -> 0);
+        System.out.println(sumOfAllNumbers);
+
 
 
 
