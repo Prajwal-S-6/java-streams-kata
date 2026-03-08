@@ -52,6 +52,19 @@ public class Main {
                 .orElseGet(() -> 0);
         System.out.println(sumOfAllNumbers);
 
+        var maxNumber = numbersList5.stream()
+                .max(Comparator.naturalOrder())
+                .orElseGet(() -> 0);
+        System.out.println(maxNumber);
+
+        List<Integer> numbersList6 = List.of(10,50,30,20,70,60);
+        var top3HighestNumber = numbersList6.stream()
+                .sorted(Comparator.reverseOrder())
+                .limit(3)
+                .toList();
+        System.out.println(top3HighestNumber);
+
+
 
 
 
