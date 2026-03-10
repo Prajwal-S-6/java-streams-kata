@@ -131,6 +131,10 @@ public class Main {
         System.out.println(salaryStatistics.getCount());
         System.out.println(salaryStatistics.getAverage());
 
+        Map<Integer, String> employeeIdToName = employees.stream()
+                .collect(Collectors.toMap(Employee::id, Employee::name));
+        System.out.println(employeeIdToName);
+
 
     }
 }
