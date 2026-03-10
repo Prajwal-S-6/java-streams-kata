@@ -101,7 +101,10 @@ public class Main {
         System.out.println(sortedEmployeeBySalary);
 
         //--------------------------------------------------------------------------------------------------
-
+        List<String> words1 = Arrays.asList("Java","Spring","Angular");
+        String combinedWords = words1.stream()
+                .collect(Collectors.joining(", "));
+        System.out.println(combinedWords);
 
     }
 }
