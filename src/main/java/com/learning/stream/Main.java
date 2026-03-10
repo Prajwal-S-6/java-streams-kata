@@ -1,6 +1,7 @@
 package com.learning.stream;
 
 import java.util.*;
+import java.util.function.Predicate;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -140,6 +141,29 @@ public class Main {
         List<Integer> flattenedList = listOfList.stream().flatMap(List::stream).toList();
         System.out.println(flattenedList);
 
+        Predicate<Integer> isEven = (num) -> num % 2 == 0;
+        Map<Boolean, List<Integer>> evenOddNumbers = listOfList.stream()
+                .flatMap(List::stream)
+                .collect(Collectors.partitioningBy(isEven));
+        System.out.println(evenOddNumbers);
+
+        Integer secondHighestNum = listOfList.stream()
+                .flatMap(List::stream)
+                .sorted(Comparator.reverseOrder())
+                .skip(1)
+                .findFirst()
+                .get();
+        System.out.println(secondHighestNum);
+
+        List<Integer> elements = List.of(1,2,3,2,4,5,1);
+        List<Integer> duplicateElements = elements.stream()
+                .collect(Collectors.groupingBy(n -> n, Collectors.summingInt(c -> 1)))
+                .entrySet()
+                .stream()
+                .filter(e -> e.getValue() == 2)
+                .map(Map.Entry::getKey)
+                .toList();
+        System.out.println(duplicateElements);
 
     }
 }
