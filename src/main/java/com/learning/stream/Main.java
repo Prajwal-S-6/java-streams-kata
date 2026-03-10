@@ -1,8 +1,7 @@
 package com.learning.stream;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -106,5 +105,17 @@ public class Main {
                 .collect(Collectors.joining(", "));
         System.out.println(combinedWords);
 
+        Map<String, List<Employee>> employeeDeptMap = employees.stream()
+                .collect(Collectors.toMap(Employee::department,
+                        List::of,
+                        (l1, l2) -> {
+                    l1.addAll(l2);
+                    return l1;
+                }));
+        Map<String, Set<Employee>> employeeDeptMap1 = employees.stream()
+                .collect(Collectors.groupingBy(Employee::department, Collectors.toSet()));
+
+        System.out.println(employeeDeptMap);
+        System.out.println(employeeDeptMap1);
     }
 }
