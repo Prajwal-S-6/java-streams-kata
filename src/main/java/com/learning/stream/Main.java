@@ -135,6 +135,11 @@ public class Main {
                 .collect(Collectors.toMap(Employee::id, Employee::name));
         System.out.println(employeeIdToName);
 
+        //-------------------------------------------------------------------------
+        List<List<Integer>> listOfList = List.of(List.of(1,2), List.of(3,4), List.of(5,6));
+        List<Integer> flattenedList = listOfList.stream().flatMap(List::stream).toList();
+        System.out.println(flattenedList);
+
 
     }
 }
