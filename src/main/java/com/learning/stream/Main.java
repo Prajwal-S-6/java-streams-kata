@@ -96,9 +96,11 @@ public class Main {
         System.out.println(employeeWithHighestSalary);
 
         List<Employee> sortedEmployeeBySalary = employees.stream()
-                .sorted(employeeComparator)
+                .sorted(Comparator.comparing(Employee::salary))
                 .toList();
         System.out.println(sortedEmployeeBySalary);
+
+        //--------------------------------------------------------------------------------------------------
 
 
     }
