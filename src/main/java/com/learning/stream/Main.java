@@ -122,5 +122,15 @@ public class Main {
         Map<String, Integer> employeesCount = employees.stream()
                 .collect(Collectors.groupingBy(Employee::department, Collectors.summingInt(e -> 1)));
         System.out.println(employeesCount);
+
+        DoubleSummaryStatistics salaryStatistics = employees.stream()
+                .collect(Collectors.summarizingDouble(Employee::salary));
+        System.out.println(salaryStatistics.getMax());
+        System.out.println(salaryStatistics.getMin());
+        System.out.println(salaryStatistics.getSum());
+        System.out.println(salaryStatistics.getCount());
+        System.out.println(salaryStatistics.getAverage());
+
+
     }
 }
