@@ -72,7 +72,8 @@ public class Main {
         List<Employee> employees = List.of(
                 new Employee(1, "A", 26, "IT", 20000),
                 new Employee(2, "B", 23, "Sales", 30000),
-                new Employee(3, "C", 21, "Engineering", 70000)
+                new Employee(3, "C", 21, "Engineering", 70000),
+                new Employee(4, "D", 21, "Engineering", 70000)
         );
         List<String> employeeNames = employees.stream()
                 .map(Employee::name)
@@ -107,7 +108,7 @@ public class Main {
 
         Map<String, List<Employee>> employeeDeptMap = employees.stream()
                 .collect(Collectors.toMap(Employee::department,
-                        List::of,
+                        e -> new ArrayList<>(List.of(e)),
                         (l1, l2) -> {
                     l1.addAll(l2);
                     return l1;
@@ -117,5 +118,9 @@ public class Main {
 
         System.out.println(employeeDeptMap);
         System.out.println(employeeDeptMap1);
+
+        Map<String, Integer> employeesCount = employees.stream()
+                .collect(Collectors.groupingBy(Employee::department, Collectors.summingInt(e -> 1)));
+        System.out.println(employeesCount);
     }
 }
